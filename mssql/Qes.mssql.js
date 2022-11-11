@@ -5,14 +5,10 @@ class checkinMssql {
     const conn = await mssqlcon.getConnection();
     const res = await conn.request()
       .input("Module", param.Module)  //CheckedIn   QualityResult  ITucHKuB
-      .input("CheckinId", param.CheckinId)
-      .input("Type", param.Type)
-      .input("ResultId", param.ResultId)
-      .input("FileName", param.FileName)
       .input("SessionEmpId", param.SessionEmpId)
       .output("pStatus")
       .output("pMessage")
-      .execute("[USP_Req_Result]");
+      .execute("[USP_Q_Question]");
     return res;
   }
 
@@ -20,14 +16,14 @@ class checkinMssql {
     const conn = await mssqlcon.getConnection();
     const res = await conn.request()
       .input("Module", param.Module)  //CheckedIn   QualityResult  ITucHKuB
-      .input("CheckinId", param.CheckinId)
-      .input("Type", param.Type)
-      .input("ResultId", param.ResultId)
+      .input("ProfileID", param.ProfileID)    
+      .input("QId", param.QId)
+      .input("AId", param.AId)
       .input("FileName", param.FileName)
       .input("SessionEmpId", param.SessionEmpId)
       .output("pStatus")
       .output("pMessage")
-      .execute("[USP_Req_Result]");
+      .execute("[USP_Q_Answer_Log]");
     return res;
   }
 
@@ -42,7 +38,7 @@ class checkinMssql {
       .input("SessionEmpId", param.SessionEmpId)
       .output("pStatus")
       .output("pMessage")
-      .execute("[USP_Req_Result]");
+      .execute("[USP_Q_Answer_remark]");
     return res;
   }
 }
