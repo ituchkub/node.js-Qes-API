@@ -1,7 +1,7 @@
 const mssqlcon = require('./connection');
 class checkinMssql {
 
-  async Anslog(param) {
+  async Qas(param) {
     const conn = await mssqlcon.getConnection();
     const res = await conn.request()
       .input("Module", param.Module)  //CheckedIn   QualityResult  ITucHKuB
@@ -12,14 +12,13 @@ class checkinMssql {
     return res;
   }
 
-  async Qes(param) {
+  async Anslog(param) {
     const conn = await mssqlcon.getConnection();
     const res = await conn.request()
       .input("Module", param.Module)  //CheckedIn   QualityResult  ITucHKuB
       .input("ProfileID", param.ProfileID)    
       .input("QId", param.QId)
       .input("AId", param.AId)
-      .input("FileName", param.FileName)
       .input("SessionEmpId", param.SessionEmpId)
       .output("pStatus")
       .output("pMessage")
@@ -27,14 +26,12 @@ class checkinMssql {
     return res;
   }
 
-  async Ans(param) {
+  async Remark(param) {
     const conn = await mssqlcon.getConnection();
     const res = await conn.request()
       .input("Module", param.Module)  //CheckedIn   QualityResult  ITucHKuB
-      .input("CheckinId", param.CheckinId)
-      .input("Type", param.Type)
-      .input("ResultId", param.ResultId)
-      .input("FileName", param.FileName)
+      .input("ProfileID", param.CheckinId)
+      .input("Remark", param.Remark)
       .input("SessionEmpId", param.SessionEmpId)
       .output("pStatus")
       .output("pMessage")

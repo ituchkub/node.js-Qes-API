@@ -4,8 +4,8 @@ const router = express.Router({
 });
 
 const Controller = require('../controllers/Qes.controller');
+router.route('/Qas').post(Controller.Qas);
 router.route('/Anslog').post(Controller.Anslog);
-router.route('/Qes').post(Controller.Qes);
-router.route('/Ans').post(Controller.Ans);
+router.route('/Remark').post(Controller.Remark);
 
 module.exports = router;

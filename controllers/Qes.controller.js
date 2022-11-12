@@ -1,13 +1,13 @@
 const Service = require('../services/Qes.service');
 class Controller {
+  async Qas(req, res) {
+    res.send(await Service.Qas(req));
+  }
   async Anslog(req, res) {
     res.send(await Service.Anslog(req));
   }
-  async Qes(req, res) {
-    res.send(await Service.Qes(req));
-  }
-  async Ans(req, res) {
-    res.send(await Service.Ans(req));
+  async Remark(req, res) {
+    res.send(await Service.Remark(req));
   } 
 }
 module.exports = new Controller();

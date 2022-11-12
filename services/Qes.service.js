@@ -5,8 +5,8 @@ const Question = require('../mssql/Qes.mssql');
 class Service {
 
 
-  async Anslog(req) {
-    const output = await Question.post(req.body);
+  async Qas(req) {
+    const output = await Question.Qas(req.body);
     if (output.output.pStatus != 1) {
       throw output.output.pMessage;
     }
@@ -23,8 +23,8 @@ class Service {
     }
   }
 
-  async Qes(req) {
-    const output = await Question.post(req.body);
+  async Anslog(req) {
+    const output = await Question.Anslog(req.body);
     if (output.output.pStatus != 1) {
       throw output.output.pMessage;
     }
@@ -41,8 +41,8 @@ class Service {
     }
   }
   
-  async Ans(req) {
-    const output = await Question.post(req.body);
+  async Remark(req) {
+    const output = await Question.Remark(req.body);
     if (output.output.pStatus != 1) {
       throw output.output.pMessage;
     }
