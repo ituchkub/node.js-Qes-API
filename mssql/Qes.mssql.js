@@ -12,6 +12,18 @@ class checkinMssql {
     return res;
   }
 
+  async Ans(param) {
+    const conn = await mssqlcon.getConnection();
+    const res = await conn.request()
+      .input("Module", param.Module)  //CheckedIn   QualityResult  ITucHKuB
+      .input("SessionEmpId", param.SessionEmpId)
+      .input("QId", param.QId)
+      .output("pStatus")
+      .output("pMessage")
+      .execute("[USP_Q_Answer]");
+    return res;
+  }
+
   async Anslog(param) {
     const conn = await mssqlcon.getConnection();
     const res = await conn.request()

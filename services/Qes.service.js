@@ -6,7 +6,19 @@ class Service {
 
 
   async Qas(req) {
+    var Ans = {}
     const output = await Question.Qas(req.body);
+
+    if (req.body.Module == "getall") {
+      var Par = {}
+      output.forEach(Qasitem => {
+        console.log(Qasitem);
+      })
+
+      const output = await Question.Ans(req.body);
+
+
+    }
     if (output.output.pStatus != 1) {
       throw output.output.pMessage;
     }
@@ -40,7 +52,7 @@ class Service {
       message: error.message ? error.message : error
     }
   }
-  
+
   async Remark(req) {
     const output = await Question.Remark(req.body);
     if (output.output.pStatus != 1) {
