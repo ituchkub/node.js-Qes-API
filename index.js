@@ -5,7 +5,7 @@ const BP = require('body-parser')
 app.use(BP.json())
 app.use(BP.urlencoded({ extended: true }))
 
-const routes = require('./routes/route');
+const routes = require('./routes/Qes.route');
 app.use('/', routes);
 
 
